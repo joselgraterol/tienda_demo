@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+    <!-- <div class="search-wrapper">
+       <input type="text" id="search-product" placeholder="search">
+       <button id="clear-search">x</button> 
+    </div> -->
+
+    <div class="search-wrapper">
+        <div class="input-holder">
+            <input type="text" class="search-input" placeholder="Type to search" id="search-product">
+            <button class="search-icon" onclick="searchToggle(this, event);"><span>&#x2315;</span></button>
+        </div>
+        <span class="close-search" id="clear-search" onclick="searchToggle(this, event);"></span>
+    </div>
+
+        <!-- counter starts -->
+            <div class="cart-container" id="burger">
+                <span class="cart-count">0</span>
+                <span id="totalCost2">0</span>
+                <span class="ver-cart">Ver Carrito <span class="left-arrow">&#8594;</span></span>
+                <!-- <i class="fa-sharp fa-solid fa-cart-shopping"></i> -->
+              
+            </div>
+        <!-- counter ends -->
+
+        <!-- popup shopping cart section starts -->
+
+        <div class="shopping-cart-popup">
+          <div class="shopping-cart-popup-content">
+            <button class="close">
+                <span>&times;</span>
+            </button>
+            
+            <div class="grid-shopping-card-form">
+
+                <div class="shopping-cart-content">
+                    <h2>Carrito de Compras</h2>
+                    <ul id="cart-container"></ul>
+                    <p id="total-cost"></p>
+                    <p id="no-products-message">No hay productos añadidos</p>
+                </div> 
+
+                <div class="form-content">
+                    <h2>Información</h2>
+                    <form id="form" autocomplete="off">
+                      <label for="name">Nombre y Apellido</label>
+                      <input type="text" id="name" name="name" required>
+
+                      <label for="number">Numero de Telefono</label>
+                      <input type="number" id="number" name="number" required>
+
+                      <label for="paymentMethod">Metodo de Pago</label>
+                      <select id="paymentMethod" name="paymentMethod" required>
+                        <option value="">Metodo de Pago</option>
+                        <option value="efectivo">Efectivo</option>
+                        <option value="pago_movil">Pago Movil</option>
+                        <option value="zelle">Zelle</option>
+                      </select>
+
+                      <div id="delivery-container">
+                          <label class="receive-text">Tipo de entrega</label>
+                          <div class="botones-delivery">
+                            <button type="button" id="pickUpBtn">Recoger en Tienda</button>
+                            <button type="button" id="deliveryBtn">Delivery</button>
+                          </div>
+                          <input type="hidden" id="deliveryMethod" name="deliveryMethod" required>
+                      </div>
+
+                      <div id="addressInputWrapper" style="display:none;">
+                        <label for="address">Dirección</label>
+                        <input type="text" id="address" name="address">
+                        <!-- <p>envio 1$</p> -->
+                      </div>
+
+                      <div id="pickupLocationsWrapper" style="display:none;">
+                        <label for="pickupLocation">Select Pickup Location</label>
+                        <select id="pickupLocation" name="pickupLocation">
+                          <option value="address1">Dirección 1</option>
+                          <option value="address2">Dirección 2</option>
+                        </select>
+                      </div>
+                      <button id="submit-ws">Enviar Orden<i class="fa-brands fa-whatsapp"></i></button>
+                    </form>
+
+                    
+                </div>
+
+                <div>
+                    <button id="volver">Volver</button>
+                </div>
+                
+                
+            </div>
+
+
+        <!-- footer section starts -->
+
+            <footer id="footer-shoping-cart">
+                    <div class="box-container">
+                                
+                        <div class="box">       
+                                <!-- <img src="images/logo.png" alt=""> -->
+                                <a class="logo">Logo</a>
+                                   
+                        </div>
+                        
+                        
+                        <div class="box">
+                                <h3>Contacto</h3>
+                                <div class="icons">
+                                    <p><i class="fa-solid fa-phone"></i>+58 424 000 0000</p>
+                                    <p><i class="fa-solid fa-envelope"></i>tienda@gmail.com</p>
+                                    <p><i class='fas fa-map-marker-alt'></i>Coro, Venezuela - 4101</p>
+                                </div>
+                                
+                        </div>
+                        
+                        <div class="box">
+                            <h3>Redes Sociales</h3>
+                            <div class="social-icons">
+                                <a href="https://wa.link/xfnuv9" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                                <a href="https://www.instagram.com/josegdesigns/?next=%2F" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="https://youtube.com/channel/UChPWe-2c-2xDmlcFSPbOePQ" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                            </div>       
+                        </div>
+                
+                
+                    </div>
+            
+                <div class="credit">&#169; 2024 all rights reserved | <span>tienda</span></div>
+            </footer>
+
+            <!-- footer section ends -->
+           
+
+        </div>
+    </div>
+
+
+    <!-- popup shopping cart section ends -->
+
+    <header id="hero">
+
+        <div class="hero-nav">
+            <div class="logo">
+                <a href="index.html">logo</a>
+            </div>
+
+            <div class="toggle-night-mode-container">
+                <label class="switch" for="toggle">
+                    <input type="checkbox" id="toggle" onclick="toggleMode()">
+                    <span class="slider">
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon"></i>
+                    </span>
+                </label>
+            </div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-text">
+               <h1>Compra Fácil y Rápido en la Tienda Online</h1>
+                <p>Disfruta de la comodidad de comprar desde casa, con una gran variedad de productos de calidad.</p> 
+            </div>
+            
+            <div class="hero-btn">
+                <a id="ver-productos-btn">Ver Productos</a>
+                <a id="show-ubicacion">Ubicación</a>
+            </div>
+        </div>
+
+        <div class="hero-ubicacion">
+            <p>Ubicación</p>
+            <button id="cerrar-ubucacion-btn">
+                <span>&times;</span>
+            </button>
+            <div class="map-container">
+                <iframe 
+                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.452697041917!2d78.39076592375736!3d17.43803374982052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9144cdba8c47%3A0x937fe346f411a645!2sTutorials%20Point%20(India)%20Ltd.!5e0!3m2!1sen!2sin!4v1673629212535!5m2!1sen!2sin"
+                 width="100%"
+                 height="100%"
+                 style="border:0;"
+                 allowfullscreen="" loading="lazy"
+                 referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>   
+        </div>
+        <!-- <div class="hero-logo">       
+            <img src="images/logo.png" alt="">                    
+        </div> -->
+
+        <!-- <div class="hero-text">       
+            <h2>Tienda C.A.</h2>                   
+        </div> -->
+    </header>
+    
+
+    <!--  nav links start -->
+
+    <div class="nav-container">
+        <nav class="nav">
+            <a class="nav-link active" href="#alimentos">Alimentos</a>
+            <a class="nav-link" href="#bebidas">Bebidas</a>
+            <a class="nav-link" href="#licores">Licores</a>
+            <a class="nav-link" href="#higiene">Higiene</a>
+        </nav>
+       <span class="overlay"></span> 
+    </div>
+
+    <!--  nav links ends -->
+
+
+    <div class="all-products-container" id="products-container">
+        <p id="filter-message">Producto no encontrado</p>
+    </div>
+
+    
+    
+    <!-- <div id="cart-container"></div> -->
+
+    <!-- <p id="total-cost"></p> -->
+
+
+    <!-- footer section starts -->
+
+        <footer>
+            <div class="box-container">
+                        
+                <div class="box">       
+                        <!-- <img src="images/logo.png" alt=""> -->
+                        <a class="logo">Logo</a>
+                           
+                </div>
+                
+                
+                <div class="box">
+                        <h3>Contacto</h3>
+                        <div class="icons">
+                            <p><i class="fa-solid fa-phone"></i>+58 424 000 0000</p>
+                            <p><i class="fa-solid fa-envelope"></i>tienda.8@gmail.com</p>
+                            <p><i class='fas fa-map-marker-alt'></i>Coro, Venezuela - 4101</p>
+                        </div>
+                        
+                </div>
+                
+                <div class="box">
+                    <h3>Redes Sociales</h3>
+                    <div class="social-icons">
+                        <!-- <a href="https://wa.link/xfnuv9" target="_blank"><i class="fa-brands fa-whatsapp"></i></a> -->
+                        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                        <!-- <a href="https://www.instagram.com/josegdesigns/?next=%2F" target="_blank"><i class="fa-brands fa-instagram"></i></a> -->
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <!-- <a href="https://youtube.com/channel/UChPWe-2c-2xDmlcFSPbOePQ" target="_blank"><i class="fa-brands fa-youtube"></i></a> -->
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    </div>       
+                </div>
+        
+        
+        </div>
+    
+        <div class="credit">&#169; 2024 all rights reserved | <span>tienda</span></div>
+    </footer>
+
+    <!-- footer section ends -->
+
+    
+
+
+    <script src="main.js"></script>
+</body>
+</html>
